@@ -25,6 +25,12 @@ namespace BalancedBracketsNS
         */
         public static bool HasBalancedBrackets(String str)
         {
+            if (str == null)
+            {
+                Console.WriteLine("Cannot determine if brackets are balanced becaues argument is null.");
+                return false;
+            }
+
             int brackets = 0;
             foreach (char ch in str.ToCharArray())
             {
@@ -35,6 +41,10 @@ namespace BalancedBracketsNS
                 else if (ch == ']')
                 {
                     brackets--;
+                }
+                if (brackets == -1)
+                {
+                    return false;
                 }
             }
             return brackets == 0;
